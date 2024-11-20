@@ -39,7 +39,48 @@ spec:
 ```
 
 2. Использовать image - gcr.io/kubernetes-e2e-test-images/echoserver:2.2.
+
+```
+user@k8s:/opt/hw_k8s_2$ microk8s kubectl apply -f /opt/hw_k8s_2/hw.yml
+pod/pod-hw created
+```
+
 3. Подключиться локально к Pod с помощью `kubectl port-forward` и вывести значение (curl или в браузере).
+
+```
+user@k8s:/opt/hw_k8s_2$ microk8s kubectl port-forward -n default pod/pod-hw 8080:8080 --address 0.0.0.0
+Forwarding from 0.0.0.0:8080 -> 8080
+
+user@k8s:~$ curl 127.0.0.1:8080
+
+
+Hostname: pod-hw
+
+Pod Information:
+        -no pod information available-
+
+Server values:
+        server_version=nginx: 1.12.2 - lua: 10010
+
+Request Information:
+        client_address=127.0.0.1
+        method=GET
+        real path=/
+        query=
+        request_version=1.1
+        request_scheme=http
+        request_uri=http://127.0.0.1:8080/
+
+Request Headers:
+        accept=*/*
+        host=127.0.0.1:8080
+        user-agent=curl/8.5.0
+
+Request Body:
+        -no body in request-
+
+user@k8s:~$
+```
 
 ------
 

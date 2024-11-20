@@ -40,6 +40,8 @@ spec:
 
 2. Использовать image - gcr.io/kubernetes-e2e-test-images/echoserver:2.2.
 
+Запуск пода:
+
 ```
 user@k8s:/opt/hw_k8s_2$ microk8s kubectl apply -f /opt/hw_k8s_2/hw.yml
 pod/pod-hw created
@@ -90,6 +92,43 @@ user@k8s:~$
 2. Использовать image — gcr.io/kubernetes-e2e-test-images/echoserver:2.2.
 3. Создать Service с именем netology-svc и подключить к netology-web.
 4. Подключиться локально к Service с помощью `kubectl port-forward` и вывести значение (curl или в браузере).
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-hw
+  labels:
+    app: pod-hw
+spec:
+  containers:
+  - name: echoserver
+    image: gcr.io/kubernetes-e2e-test-images/echoserver:2.2
+    ports:
+    - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-hw
+spec:
+  selector:
+    app: service-hw
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+```
+
+Запуск пода и сервиса:
+
+```
+user@k8s:/opt/hw_k8s_2$ microk8s kubectl apply -f service-hw.yml
+pod/pod-hw configured
+service/service-hw created
+```
 
 ------
 

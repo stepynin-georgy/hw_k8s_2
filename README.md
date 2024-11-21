@@ -130,6 +130,43 @@ pod/pod-hw configured
 service/service-hw created
 ```
 
+Проверка:
+
+```
+user@k8s:~$ curl -G http://127.0.0.1:8085
+
+
+Hostname: pod-hw
+
+Pod Information:
+        -no pod information available-
+
+Server values:
+        server_version=nginx: 1.12.2 - lua: 10010
+
+Request Information:
+        client_address=127.0.0.1
+        method=GET
+        real path=/
+        query=
+        request_version=1.1
+        request_scheme=http
+        request_uri=http://127.0.0.1:8080/
+
+Request Headers:
+        accept=*/*
+        host=127.0.0.1:8085
+        user-agent=curl/8.5.0
+
+Request Body:
+        -no body in request-
+
+user@k8s:~$
+
+```
+
+
+
 ------
 
 ### Правила приёма работы

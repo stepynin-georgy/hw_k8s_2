@@ -25,6 +25,8 @@
 
 1. Создать манифест (yaml-конфигурацию) Pod.
 
+[hw.yml](https://github.com/stepynin-georgy/hw_k8s_2/blob/main/hw.yml)
+
 ```
 apiVersion: v1
 kind: Pod
@@ -90,6 +92,8 @@ Request Body:
 user@k8s:~$
 ```
 
+![изображение](https://github.com/stepynin-georgy/hw_k8s_2/blob/main/img/Screenshot_140.png)
+
 ------
 
 ### Задание 2. Создать Service и подключить его к Pod
@@ -98,6 +102,8 @@ user@k8s:~$
 2. Использовать image — gcr.io/kubernetes-e2e-test-images/echoserver:2.2.
 3. Создать Service с именем netology-svc и подключить к netology-web.
 4. Подключиться локально к Service с помощью `kubectl port-forward` и вывести значение (curl или в браузере).
+
+[service-hw.yml](https://github.com/stepynin-georgy/hw_k8s_2/blob/main/service-hw.yml)
 
 ```
 apiVersion: v1
@@ -179,7 +185,7 @@ user@k8s:~$
 
 ```
 
-
+![изображение](https://github.com/stepynin-georgy/hw_k8s_2/blob/main/img/Screenshot_141.png)
 
 ------
 

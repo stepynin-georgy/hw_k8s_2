@@ -47,6 +47,12 @@ user@k8s:/opt/hw_k8s_2$ microk8s kubectl apply -f /opt/hw_k8s_2/hw.yml
 pod/pod-hw created
 ```
 
+```
+user@k8s:~$ microk8s kubectl get pods
+NAME     READY   STATUS    RESTARTS   AGE
+pod-hw   1/1     Running   0          20h
+```
+
 3. Подключиться локально к Pod с помощью `kubectl port-forward` и вывести значение (curl или в браузере).
 
 ```
@@ -128,6 +134,14 @@ spec:
 user@k8s:/opt/hw_k8s_2$ microk8s kubectl apply -f service-hw.yml
 pod/pod-hw configured
 service/service-hw created
+```
+
+```
+user@k8s:~$ microk8s kubectl get services
+NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.152.183.1     <none>        443/TCP   43h
+service-hw   ClusterIP   10.152.183.200   <none>        80/TCP    22h
+user@k8s:~$
 ```
 
 Проверка:
